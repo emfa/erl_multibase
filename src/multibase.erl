@@ -46,9 +46,9 @@ encode(base32, Bin) ->
 encode(base32hex, Bin) ->
     [varint:encode(?BASE32HEX), base32:encode(Bin, [hex])];
 encode(base58flickr, _Bin) ->
-    {error, unimplemented};
+    error(unimplemented);
 encode(base58btc, _Bin) ->
-    {error, unimplemented};
+    error(unimplemented);
 encode(base64, Bin) ->
     [varint:encode(?BASE64), base64:encode(Bin)];
 encode(base64url, Bin) ->
@@ -71,9 +71,9 @@ decode(Base, Rest) when Base == ?BASE16; Base == ?base16 ->
 decode(Base, Rest) when Base == ?BASE32; Base == ?base32 ->
     binary:encode_unsigned(binary_to_integer(Rest, 32));
 decode(?BASE58FLICKR, _Rest) ->
-    {error, unimplemented};
+    error(unimplemented);
 decode(?BASE58BTC, _Rest) ->
-    {error, unimplemented};
+    error(unimplemented);
 decode(?BASE64, Rest) ->
     base64:decode(Rest);
 decode(?BASE64URL, Rest) ->
