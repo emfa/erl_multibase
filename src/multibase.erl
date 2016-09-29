@@ -24,7 +24,7 @@
 
 -export_type([base/0, multibase/0]).
 
--export([encode/1, encode/2, decode/1]).
+-export([encode/1, encode/2, decode/1, supports/0]).
 
 -spec encode(binary()) -> multibase().
 encode(Bin) ->
@@ -78,6 +78,10 @@ decode(?BASE64, Rest) ->
     base64:decode(Rest);
 decode(?BASE64URL, Rest) ->
     base64url:decode(Rest).
+
+-spec supports() -> list(base()).
+supports() ->
+    [base1, base2, base8, base10, base16, base32, base32hex, base64, base64url].
 
 encode_base_1(Bin) ->
     encode_int_base_1(binary:decode_unsigned(Bin), <<>>).
