@@ -1,4 +1,4 @@
 [{<<"erl_varint">>,
   {git,"git://github.com/emfa/erl_varint.git",
-       {ref,"80cb659cf80675245a5993ac4220c0bd20c84ce0"}},
+       {ref,"867dc54d441f7073fecb17283d20503e01ed6bc2"}},
   0}].
